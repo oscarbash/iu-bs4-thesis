@@ -1,6 +1,6 @@
 \documentclass[oneside,final,14pt,a4paper]{extreport}
 
-\usepackage{tempora} % Times New Roman alike font  
+\usepackage{tempora} % Times New Roman alike font
 
 \usepackage{vmargin}
 \setpapersize{A4}
@@ -13,7 +13,7 @@
 %%%%% ADDED TO SUPPORT TT BOLD FACES %%%%
 \DeclareFontShape{OT1}{cmtt}{bx}{n}{<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>cmttb10}{}
 \renewcommand{\ttdefault}{pcr}
-%%%%% END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%% END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{atbegshi,picture}
 \usepackage{fontspec}
@@ -22,7 +22,7 @@
 \usepackage[backend=biber,style=ieee,autocite=inline]{biblatex}
 \bibliography{ref.bib}
 \DefineBibliographyStrings{english}{%
-  bibliography = {References},}
+bibliography = {References},}
 \usepackage{blindtext}
 
 \usepackage{pdfpages}
@@ -61,7 +61,7 @@
 % \usepackage{t1enc}
 
 \usepackage{chngcntr}
-\usepackage{upgreek} 
+\usepackage{upgreek}
 \usepackage{bm}
 \usepackage{hyperref}
 \usepackage{booktabs}
@@ -81,7 +81,7 @@
 
 % \setcounter{secnumdepth}{4}
 \captionsetup[table]{labelfont={normalfont}, name={TABLE}, labelsep={newline}}
-\setlength{\parindent}{2em} 
+\setlength{\parindent}{2em}
 \DeclareCaptionLabelSeparator{figSep}{.\quad}
 \captionsetup[figure]{labelfont={normalfont}, name={Fig.}, labelsep=period}
 \counterwithin{figure}{chapter}
@@ -100,23 +100,23 @@
 
 % remember section title
 \renewcommand{\chaptermark}[1]%
-	{\markboth{\chaptername~\thechapter~--~#1}{}}
+{\markboth{\chaptername~\thechapter~--~#1}{}}
 
 % subsection number and title
 \renewcommand{\sectionmark}[1]%
-	{\markright{\thesection\ #1}}
+{\markright{\thesection\ #1}}
 
 \rhead[\fancyplain{}{\bf\leftmark}]%
-      {\fancyplain{}{\bf\thepage}}
+{\fancyplain{}{\bf\thepage}}
 \lhead[\fancyplain{}{\bf\thepage}]%
-      {\fancyplain{}{\bf\rightmark}}
+{\fancyplain{}{\bf\rightmark}}
 \cfoot{} %bfseries
 
-
 \newcommand{\dedication}[1]
-   {\thispagestyle{empty}
-     
-   \begin{flushleft}\raggedleft #1\end{flushleft}
+{\thispagestyle{empty}
+
+  \begin{flushleft}\raggedleft #1
+  \end{flushleft}
 }
 
 \begin{document}
@@ -126,7 +126,6 @@
 \listoftables
 \listoffigures
 \newpage
-
 
 \include{chapters/abstract}
 \setcounter{page}{7}
@@ -138,7 +137,8 @@
 % List of figures - page 5
 % Abstract - page 6
 % Chapter 1 - page 7
-% In your thesis the counter number can be different, please count carefully and insert the corresponding number.
+% In your thesis the counter number can be different, please count
+% carefully and insert the corresponding number.
 
 \include{chapters/chapter1}
 \include{chapters/chapter2}
@@ -146,7 +146,6 @@
 \include{chapters/chapter4}
 \include{chapters/chapter5}
 \include{chapters/chapter6}
-
 
 %% REFERENCES
 \printbibliography[heading=bibintoc,title={Bibliography cited}]
