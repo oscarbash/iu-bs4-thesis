@@ -1,6 +1,42 @@
 \chapter{Introduction}
 
-\section{Foo}
+\section{Terminology}
+
+To avoid ambiguity, it is important that we establish definitions of terms
+used throughout this paper. The terms below may have other broader definitons,
+but I will focus on certain narrow meanings relevant to my work.
+
+A \textbf{locale} is a specific set of conventions of a cultural region.
+It is synonymous but not equivalent to \textit{language}. For example, being
+a single language, American English and British English have different norms.
+
+\textbf{Internationalization} (i18n) refers to adapting software
+to \textit{locales} and supporting multiple languages. For example,
+an application can offer English and Russian translations.
+
+\textbf{Localization} (l10n) refers to adopting a \textit{locale}'s
+conventions for better integration into a cultural landscape.
+For example, American English uses the \texttt{MM/DD/YYYY} date
+format, while British English prefers \texttt{DD/MM/YYYY}.
+
+These terms are reintroduced coninuously in various sources.
+\cite{barbour1997, he2002, couto2026}
+
+\section{Problem}
+
+There are many i18n frameworks. However, most of them are designed to
+only support one ecosystem (e.g., JS, Python, Android). Different
+frameworks have different developer workflows and vary by their
+quality and capabilies.
+
+Although programming-language-agnostic tools exist, they are not not
+type-safe. Most frameworks depend on runtime lookups, which may be
+error-prone and lead to poorer developer experience.
+
+Mulan’s approach is to utilize static analysis to its fullest to
+generate real functions in target programming languages, using common
+platform-agnostic definitions. You may practically think of it as
+Protobuf, but for human-text templates.
 
 Article 1 \cite{barbour1997}
 
