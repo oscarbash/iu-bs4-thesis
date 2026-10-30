@@ -18,7 +18,14 @@
 \usepackage{atbegshi,picture}
 \usepackage{fontspec}
 
-\usepackage[english]{babel}
+\setmainfont[
+  Ligatures=TeX,
+  Extension=.otf,
+  BoldFont=cmunbx,
+  ItalicFont=cmunti,
+  BoldItalicFont=cmunbi,
+]{cmunrm}
+
 \usepackage[backend=biber,style=ieee,autocite=inline]{biblatex}
 \bibliography{ref.bib}
 \DefineBibliographyStrings{english}{%
