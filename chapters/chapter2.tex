@@ -23,11 +23,36 @@ analyze and compare real-world technologies.
   переиспользую, с кем конкурирую и какие у моего решения преимущества.
 }
 
-Fluent-Typed \cite{fluenttyped}, ICU MessageFormat \cite{icumf},
-MessageFormat 2 \cite{icumf2}, CLDR \cite{cldr}, ICU \cite{icu},
-ICU4X \cite{icu4x}, \cite{i18nembed}
+ICU MessageFormat \cite{icumf}, MessageFormat 2 \cite{icumf2},
+CLDR \cite{cldr}, ICU \cite{icu}, ICU4X \cite{icu4x}
 
-\begin{longtable}{l|c|c|c|c}
+\textbf{gettext} \cite{gettext} is a traditional i18n framework with
+very widespread adoption. Virtually every programming language has
+libraries for gettext support; however, only two claim to be type-safe:
+i18n++ for C++ \cite{i18ncpp} (unmaintained, low adoption,
+type-safety through macros) and i18n-embed for Rust \cite{i18nembed}
+(type-safety through macros). With gettext, programmers write
+user-facing text messages in the main locale (most often, English)
+directly in their code, and translation files are used to map these
+strings to other locales' versions. The framework uses custom syntax
+with support for dynamic placeholders and pluralization. However,
+more advanced features such as date/time/number formatting, message
+variants, or markup placeholders are not supported.
+
+\textbf{i18next} \cite{i18next}...
+
+\textbf{Paraglide JS} \cite{paraglide}...
+
+\textbf{Lingui} \cite{lingui}...
+
+\textbf{doti18n} \cite{doti18n}...
+
+\textbf{Project Fluent} \cite{fluent}... \textbf{Fluent-Typed} \cite{fluent}
+\textbf{i18n-embed} \cite{i18nembed}
+
+\textbf{Mulan}
+
+\begin{longtable}{c|c|c|c|c}
   \caption{Rating Existing i18n Solutions} \label{tab:pfams} \\
   \hline
   \textbf{Name} &
@@ -40,12 +65,12 @@ ICU4X \cite{icu4x}, \cite{i18nembed}
   \multicolumn{3}{@{}l}{} \\
   \hline
   \endhead
-  \textbf{gettext} \cite{gettext}     & D & D & C & S \\
-  \textbf{i18next} \cite{i18next}     & A & A & S & F \\
-  \textbf{Paraglide} \cite{paraglide} & S & B & B & F \\
-  \textbf{Lingui} \cite{lingui}       & B & A & A & F \\
-  \textbf{doti18n} \cite{doti18n}     & A & C & A & F \\
-  \textbf{Fluent} \cite{fluent}       & C & S & B & A \\
+  \textbf{gettext}   & D & D & C & S \\
+  \textbf{i18next}   & A & A & S & F \\
+  \textbf{Paraglide} & S & B & B & F \\
+  \textbf{Lingui}    & B & A & A & F \\
+  \textbf{doti18n}   & A & C & A & F \\
+  \textbf{Fluent}    & C & S & B & A \\
   \hline
   \textbf{Mulan} &
   S &
