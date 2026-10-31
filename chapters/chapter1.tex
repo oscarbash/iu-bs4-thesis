@@ -4,23 +4,24 @@
 
 To avoid ambiguity, it is important to establish definitions for
 terms used throughout this paper. The terms below may have other
-broader definitons, but I will focus on certain narrow meanings
+broader definitions, but I will focus on certain narrow meanings
 relevant to my work.
 
 A \textbf{locale} is a specific set of conventions of a cultural region.
-It is synonymous but not equivalent to \textit{language}. For example, being
-a single language, American English and British English have different norms.
+It is synonymous but not equivalent to \textit{language}.
+For example, being a single language, the American and British English
+locales have different norms.
 
-\textbf{Internationalization} (i18n) refers to adapting software
-to \textit{locales} and supporting multiple languages. For example,
-an application can offer English and Russian translations.
+\textbf{Localization} (l10n) is the process of adapting software
+to different \textit{locales} and, possibly, adopting their
+conventions for better integration into a cultural landscape
+(e.g., \texttt{MM/DD/YYYY} vs. \texttt{DD.MM.YYYY} as the date format).
 
-\textbf{Localization} (l10n) refers to adopting a \textit{locale}'s
-conventions for better integration into a cultural landscape.
-For example, American English uses the \texttt{MM/DD/YYYY} date
-format, while British English prefers \texttt{DD/MM/YYYY}.
+\textbf{Internationalization} (i18n) refers to designing software
+in a way that it can support \textit{localization} without major
+refactoring; for example, by keeping all natural language strings together.
 
-These terms are reintroduced coninuously in various sources.
+These terms are reintroduced continuously in various sources.
 \cite{barbour1997, he2002, couto2026}
 
 \section{Brief Overview}
@@ -37,12 +38,12 @@ on GitHub: \url{https://github.com/oscarbash/mulan}.
 
 \section{Problem Statement}
 
-There are many i18n frameworks. However, most of them are designed
+Many i18n frameworks exist. However, most of them are designed
 to only support one ecosystem (e.g., JavaScript, Python, Android).
 Different frameworks have different developer workflows and vary
-by their quality and capabilies.
+by their quality and capabilities.
 
-Although programming-language-agnostic tools exist, they are not not
+Although programming-language-agnostic tools exist, they are not
 type-safe. Most frameworks depend on runtime lookups, which may be
 error-prone and lead to poorer developer experience.
 
@@ -50,7 +51,7 @@ error-prone and lead to poorer developer experience.
 
 \textit{Описать как я планирую подойти к проблеме. Какие стратегии
   существуют. Привести примеры из статей \cite{barbour1997, he2002,
-  couto2026}. Описать мой подход. Сказать, что в Literature Review
+  couto2026, danvy1998}. Описать мой подход. Сказать, что в Literature Review
   будет описание альтернатив. Сказать чего я хочу добиться,
   acceptability criteria, как проект будет расширяться, какие языки и
 функции будет поддерживать. Возможно, привести иллюстративные примеры, даты.}

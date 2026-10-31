@@ -23,8 +23,34 @@ analyze and compare real-world technologies.
   переиспользую, с кем конкурирую и какие у моего решения преимущества.
 }
 
-Fluent \cite{fluent}, Fluent-Typed \cite{fluenttyped}, i18next
-\cite{i18next}, gettext \cite{gettext}, Lingui \cite{lingui},
-Paraglide \cite{paraglide}, doti18n \cite{doti18n}, ICU MessageFormat
-\cite{icumf}, MessageFormat 2 \cite{icumf2}, CLDR \cite{cldr}, ICU
-\cite{icu}, ICU4X \cite{icu4x}
+Fluent-Typed \cite{fluenttyped}, ICU MessageFormat \cite{icumf},
+MessageFormat 2 \cite{icumf2}, CLDR \cite{cldr}, ICU \cite{icu},
+ICU4X \cite{icu4x}, \cite{i18nembed}
+
+\begin{longtable}{l|c|c|c|c}
+  \caption{Rating Existing i18n Solutions} \label{tab:pfams} \\
+  \hline
+  \textbf{Name} &
+  \textbf{Type-Safety} &
+  \textbf{Capabilities} &
+  \textbf{Syntax} &
+  \textbf{Ecosystem} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{@{}l}{} \\
+  \hline
+  \endhead
+  \textbf{gettext} \cite{gettext}     & D & D & C & S \\
+  \textbf{i18next} \cite{i18next}     & A & A & S & F \\
+  \textbf{Paraglide} \cite{paraglide} & S & B & B & F \\
+  \textbf{Lingui} \cite{lingui}       & B & A & A & F \\
+  \textbf{doti18n} \cite{doti18n}     & A & C & A & F \\
+  \textbf{Fluent} \cite{fluent}       & C & S & B & A \\
+  \hline
+  \textbf{Mulan} &
+  S &
+  D \textrightarrow{} S
+  & B &
+  D \textrightarrow{} A \\
+  \hline
+\end{longtable}
