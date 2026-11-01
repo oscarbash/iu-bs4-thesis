@@ -63,10 +63,19 @@ with support for dynamic placeholders and pluralization. However,
 more advanced features such as date/time/number formatting, message
 variants, or markup placeholders are not supported.
 
-\textbf{Project Fluent} \cite{fluent}...
-
-Fluent-Typed \cite{fluent},
-i18n-embed \cite{i18n-embed}
+\textbf{Project Fluent} \cite{fluent} is a modern
+ecosystem-independent localization framework. It uses custom syntax
+for messages inspired by ICU MessageFormat \cite{icumf} with many
+advanced features such as asymmetric translation, pluralization, or
+grammatical gender. Fluent is often regarded the most linguistically
+expressive and feature-rich framework. While it is not type-safe by
+default, it has several type-safe drivers. They include i18n-embed
+for Rust \cite{i18n-embed} (type-safety through macros), Fluent-Typed
+for Rust \cite{fluent-typed} (type-safety through generating getter
+functions), and fluent-typescript for JS/TS \cite{fluent-typescript}
+(type-safety through generating type definitions). While there are
+libraries for other programming languages, I have not found other
+type-safe solutions.
 
 \textbf{i18next} \cite{i18next}...
 
