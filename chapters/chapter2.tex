@@ -9,22 +9,144 @@ analyze and compare real-world technologies.
 
 \section{Related Research}
 
-\textit{
-  Более подробно рассказать про \cite{barbour1997, he2002,
-  couto2026}, их находки и выводы, что я могу применить в своём
-  проекте, с чем расхожусь, что не беру в область своей работы.
-}
+% \textit{
+%   Более подробно рассказать про \cite{barbour1997, he2002}, их
+%   находки и выводы, что я могу применить в своём проекте, с чем
+%   расхожусь, что не беру в область своей работы.
+% }
+
+In \cite{danvy1998}, the author raises the problem of how non-trivial
+expressing a C-like \texttt{printf} function in statically typed
+systems is. The expression \texttt{printf("The \%s is
+\%d.{\textbackslash}n", "answer", 42)} is loosely typed; nothing at
+compile time prohibits \texttt{printf("The \%s is
+\%d.{\textbackslash}n", 'x', 0, true, "a")}. To address this, Danvy
+proposes syntax for building typed functions that yield formatted
+strings. Even though his specific syntax is not relevant for my work,
+the underlying principle is: string interpolation can be type-safe.
+The pattern introduced earlier can be expressed as a function of type
+\texttt{fn(String, Int) -> String} (passing a string and a number
+will return a string). Since the i18n framework I am building
+prioritizes type safety, I can leverage this idea to make every
+individual message template type-safe to call.
+
+Couto et al. conducted a systematic mapping study \cite{couto2026}
+showing how localization influences user experience. Various flaws
+such as broken layout, mistranslations, or foreign conventions are
+visible to users and they damage company reputation. The authors
+propose testing strategies to detect and mitigate these issues. As
+much as I understand the importance of UX, my project explicitly does
+not address it. I specifically mentioned this study to highlight the
+focus of my work. Mulan does not solve all l10n issues; it is an
+internationalization framework that provides developers with a way to
+localize their applications conveniently and safely. I apply Apple's
+philosophy: \enquote{Give people wonderful tools, and they'll do wonderful
+things.} Maintaining translation and rendering accuracy is outside of
+my tool's scope; application developers are responsible for quality
+of their products. Highlighting my priorities is crucial to avoid
+false expectations.
 
 \section{Existing Projects}
 
+Below is a brief analysis of existing internationalization solutions.
+Of course, listing all solutions is neither possible nor meaningful.
+Therefore, I only selected the most relevant tools in ecosystems I am
+personally familiar with.
+
+\textbf{gettext} \cite{gettext} is a traditional i18n framework with
+very widespread adoption. Virtually every programming language has
+libraries for gettext support; however, only two claim to be type-safe:
+i18n++ for C++ \cite{i18n-cpp} (unmaintained, low adoption,
+type-safety through macros) and i18n-embed for Rust \cite{i18n-embed}
+(type-safety through macros). With gettext, programmers write
+user-facing text messages in the main locale (most often, English)
+directly in their code, and translation files are used to map these
+strings to other locales' versions. The framework uses custom syntax
+with support for dynamic placeholders and pluralization. However,
+more advanced features such as date/time/number formatting, message
+variants, or markup placeholders are not supported.
+
+\textbf{Project Fluent} \cite{fluent} is a modern
+ecosystem-independent localization framework. It uses custom syntax
+for messages inspired by ICU MessageFormat \cite{icumf} with many
+advanced features such as asymmetric translation, pluralization, or
+grammatical gender. Fluent is often regarded the most linguistically
+expressive and feature-rich framework. While it is not type-safe by
+default, it has several type-safe drivers. They include i18n-embed
+for Rust \cite{i18n-embed} (type-safety through macros), Fluent-Typed
+for Rust \cite{fluent-typed} (type-safety through generating getter
+functions), and fluent-typescript for JS/TS \cite{fluent-typescript}
+(type-safety through generating type definitions). While there are
+libraries for other programming languages, I have not found other
+type-safe solutions.
+
+\textbf{i18next} \cite{i18next} is the most widely used i18n
+framework made for the JavaScript ecosystem. Being mature and
+feature-rich, its creators claim that \enquote{there is no real i18n
+case that could not be solved with i18next.} The framework uses
+custom syntax for messages, but also supports ICU MessageFormat
+\cite{icumf1} and its successor MessageFormat 2 \cite{icumf2}, the
+industry-standard i18n language, through plugins. With proper setup,
+i18next can generate TypeScript definitions for type-safety, which
+covers most simple cases such as misspelled message keys or invalid
+placeholders.
+
+\textbf{Paraglide JS} \cite{paraglide} is a modern i18n framework in
+the JS ecosystem. It is spiritually similar to my work in that it
+uses a compiler to generate type-safe bindings. Paraglide provides
+custom syntax for messages, but its plugin system allows using ICUMF1
+\cite{icumf1}. While not as mature as other options, Paraglide
+provides important features such as pluralization, message variants,
+or markup placeholders. However, it doesn't support nested messages,
+dynamic locale loading, or message hierarchies (namespaces).
+
+Finally, \textbf{Mulan}, the tool behind this paper. A compiler-based type-safe
+framework independent from any specific ecosystem (akin to gettext
+or Fluent). Mulan uses custom syntax to ensure complete type-safety
+and control features. Although the only supported programming
+language right now is Rust, new platforms will be added. Likewise,
+new functionality is being added continuously. The current basic
+prototype serves as a solid foundation for new features.
+
 \textit{
-  Сделать сравнительный анализ и описание существующих проектов
-  и чем я буду выделяться на фоне них, от чего вдохновляюсь, что
-  переиспользую, с кем конкурирую и какие у моего решения преимущества.
+  Other relevant projects include \textbf{typesafe-i18n}
+  \cite{typesafe-i18n}, \textbf{Lingui} \cite{lingui}, \textbf{Rust
+  I18n} \cite{rust-i18n}, \textbf{typed-i18n} \cite{typed-i18n},
+  \textbf{Rosetta} \cite{rosetta}, and \textbf{doti18n}
+  \cite{doti18n}. While they are designed type-safe, all of them are
+  ecosystem-dependent.
 }
 
-Fluent \cite{fluent}, Fluent-Typed \cite{fluenttyped}, i18next
-\cite{i18next}, gettext \cite{gettext}, Lingui \cite{lingui},
-Paraglide \cite{paraglide}, doti18n \cite{doti18n}, ICU MessageFormat
-\cite{icumf}, MessageFormat 2 \cite{icumf2}, CLDR \cite{cldr}, ICU
-\cite{icu}, ICU4X \cite{icu4x}
+\begin{longtable}{c|c|c|c|c}
+  \caption{Rating Existing i18n Solutions} \label{tab:pfams} \\
+  \hline
+  \textbf{Name} &
+  \textbf{Type-Safety} &
+  \textbf{Capabilities} &
+  \textbf{Syntax} &
+  \textbf{Ecosystem} \\
+  \hline
+  \endfirsthead
+  \multicolumn{3}{@{}l}{} \\
+  \hline
+  \endhead
+  \textbf{gettext}   & D & D & C & S \\
+  \textbf{Fluent}    & C & S & B & A \\
+  \textbf{i18next}   & A & A & A & F \\
+  \textbf{Paraglide} & S & B & A & F \\
+  \hline
+  \textbf{Mulan} &
+  S &
+  D \textrightarrow{} S
+  & B &
+  D \textrightarrow{} A \\
+  \hline
+\end{longtable}
+
+Currently, Mulan is not production-ready, and its goals are yet to be
+achieved. Thus, for now, Mulan scores D on \textit{Capabilities} and
+\textit{Ecosystem}: right now, Rust is the only compilation target,
+and the framework does not support advanced features such as
+pluralization, message variants, markup placeholders, or dynamic
+locale loading. However, as the tool progresses, it will gain more
+features, making it suitable for real-world use.
