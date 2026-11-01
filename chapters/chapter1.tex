@@ -70,5 +70,18 @@ CLDR \cite{cldr}, ICU \cite{icu}, ICU4X \cite{icu4x}
 
 \section{Acceptance Criteria}
 
-Rzk \cite{rzk}
-...
+While the project has major ambitions of supporting many platforms
+and being expressive enough to solve any l10n problem, establishing
+specific goals is crucial for this thesis work.
+
+For an engineering work, such as this, the most important benchmark
+is practical applicability. To consider my project successful, it
+needs to be expressive enough for integration into a real-world
+project. For this role I choose the Rzk proof assistant \cite{rzk},
+a my thesis supervisor's project.
+
+To use Mulan in Rzk, my framework at least has to support Haskell as a
+compilation target, message nesting, and message variants. While not
+universal, message variants can emulate other features, such as
+pluralization, to a certain degree. Combined with message nesting,
+they can rather ergonomically allow changing a message's structure dynamically.
