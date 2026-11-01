@@ -16,14 +16,14 @@ analyze and compare real-world technologies.
 }
 
 In \cite{danvy1998}, the author raises the problem of how non-trivial
-expressing a C-like \texttt{printf} function is in statically typed
-systems. The expression \texttt{printf("The \%s is
+expressing a C-like \texttt{printf} function in statically typed
+systems is. The expression \texttt{printf("The \%s is
 \%d.{\textbackslash}n", "answer", 42)} is loosely typed; nothing at
 compile time prohibits \texttt{printf("The \%s is
 \%d.{\textbackslash}n", 'x', 0, true, "a")}. To address this, Danvy
 proposes syntax for building typed functions that yield formatted
-strings. Even though this specific syntax is not relevant for my
-work, the underlying principle is: string interpolation can be type-safe.
+strings. Even though his specific syntax is not relevant for my work,
+the underlying principle is: string interpolation can be type-safe.
 The pattern introduced earlier can be expressed as a function of type
 \texttt{fn(String, Int) -> String} (passing a string and a number
 will return a string). Since the i18n framework I am building
