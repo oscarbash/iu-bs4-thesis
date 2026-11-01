@@ -15,6 +15,21 @@ analyze and compare real-world technologies.
   проекте, с чем расхожусь, что не беру в область своей работы.
 }
 
+In \cite{danvy1998}, the author raises the problem of how non-trivial
+expressing a C-like \texttt{printf} function is in strongly typed
+systems. The expression \texttt{printf("The \%s is
+\%d.{\textbackslash}n", "answer", 42)} is loosely typed; nothing at
+compile time prohibits \texttt{printf("The \%s is
+\%d.{\textbackslash}n", 'x', 0, true, "a")}. To address this, Danvy
+proposes syntax for building typed functions that yield formatted
+strings. Even though this specific syntax is not relevant for my
+work, the underlying principle is: string interpolation can be type-safe.
+The pattern introduced earlier can be expressed as a function of type
+\texttt{fn(String, Int) -> String} (passing a string and a number
+will return a string). Since the i18n framework I am building
+prioritizes type safety, I can leverage this idea to make every
+individual message template type-safe to call.
+
 \section{Existing Projects}
 
 ...list not extensive, relevant, familiar ecosystems.
