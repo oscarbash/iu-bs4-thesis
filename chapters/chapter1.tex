@@ -60,13 +60,18 @@ framework is called \textbf{Mulan} (portmanteau of \textit{multi} +
 the same functionality, type-safety, and developer experience for every
 supported ecosystem.
 
-\textit{Описать как я планирую подойти к проблеме. Какие стратегии
-  существуют. Описать мой подход. Сказать, что в Literature Review
-  будет описание альтернатив. Сказать чего я хочу добиться,
-  acceptability criteria, как проект будет расширяться, какие языки и
-функции будет поддерживать. Возможно, привести иллюстративные примеры, даты.}
+My project does not claim to support all programming languages. Every
+new supported platform requires writing a code generation layer.
+Supporting most common programming languages such as Python and
+JavaScript is prioritized.
 
-CLDR \cite{cldr}, ICU \cite{icu}, ICU4X \cite{icu4x}
+In the future (not necessarily as port of my thesis), I plan to reach
+a maturity level where Mulan can be used for any l10n use case
+(dynamic locale loading, complex parameter types, markup
+placeholders, etc.). To properly follow localization rules, I can leverage
+existing databases such as CLDR, \cite{cldr} which is used by
+projects such as ICU \cite{icu} or its modern successor ICU4X
+\cite{icu4x} to format values according to locale conventions.
 
 \section{Acceptance Criteria}
 
