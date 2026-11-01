@@ -85,11 +85,20 @@ framework made for the JavaScript ecosystem. Being mature and
 feature-rich, its creators claim that \enquote{there is no real i18n
 case that could not be solved with i18next.} The framework uses
 custom syntax for messages, but also supports ICU MessageFormat
-\cite{icumf} and its successor MessageFormat 2 \cite{icumf2}, the
+\cite{icumf1} and its successor MessageFormat 2 \cite{icumf2}, the
 industry-standard i18n language, through plugins. With proper setup,
 i18next can generate TypeScript definitions for type-safety, which
 covers most simple cases such as misspelled message keys or invalid
 placeholders.
+
+\textbf{Paraglide JS} \cite{paraglide} is a modern i18n framework in
+the JS ecosystem. It is spiritually similar to my work in that it
+uses a compiler to generate type-safe bindings. Paraglide provides
+custom syntax for messages, but its plugin system allows using ICUMF1
+\cite{icumf1}. While not as mature as other options, Paraglide
+provides important features such as pluralization, message variants,
+or markup placeholders. However, it doesn't support nested messages,
+dynamic locale loading, or message hierarchies (namespaces).
 
 Finally, \textbf{Mulan}, the tool behind this paper. A compiler-based type-safe
 framework independent from any specific ecosystem (akin to gettext
@@ -100,12 +109,12 @@ new functionality is being added continuously. The current basic
 prototype serves as a solid foundation for new features.
 
 \textit{
-  Other relevant projects include \textbf{Paraglide JS}
-  \cite{paraglide}, \textbf{typesafe-i18n} \cite{typesafe-i18n},
-  \textbf{Lingui} \cite{lingui}, \textbf{Rust I18n} \cite{rust-i18n},
-  \textbf{typed-i18n} \cite{typed-i18n}, \textbf{Rosetta}
-  \cite{rosetta}, and \textbf{doti18n} \cite{doti18n}. While they
-  provide type-safety, all of them are ecosystem-dependent.
+  Other relevant projects include \textbf{typesafe-i18n}
+  \cite{typesafe-i18n}, \textbf{Lingui} \cite{lingui}, \textbf{Rust
+  I18n} \cite{rust-i18n}, \textbf{typed-i18n} \cite{typed-i18n},
+  \textbf{Rosetta} \cite{rosetta}, and \textbf{doti18n}
+  \cite{doti18n}. While they are designed type-safe, all of them are
+  ecosystem-dependent.
 }
 
 \begin{longtable}{c|c|c|c|c}
